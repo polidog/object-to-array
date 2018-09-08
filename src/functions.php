@@ -11,6 +11,11 @@ function object_to_array($object)
     if (false === \is_object($object)) {
         throw new \InvalidArgumentException('not object.');
     }
+
+    if (method_exists($object, '__toArray')) {
+        return $object->__toArray();
+    }
+
     return array_map('Polidog\ObjectToArray\object_to_array_map', (array) $object);
 }
 
