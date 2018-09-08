@@ -1,4 +1,5 @@
 # object_to_array
+[![Build Status](https://travis-ci.org/polidog/object-to-array.svg?branch=master)](https://travis-ci.org/polidog/object-to-array)  
 object_to_array is convert PHP object to array.
 
 
