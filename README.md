@@ -14,6 +14,8 @@ $ composer require polidog/object-to-array
 ```
 <?php
 
+use function Polidog\ObjectToArray\object_to_array;
+
 $date = new \DateTime();
 $dateArray = object_to_array($data);
 
