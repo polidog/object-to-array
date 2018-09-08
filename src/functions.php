@@ -23,8 +23,7 @@ function object_to_array_map($data) {
 
         $array = [];
         foreach ((array) $data as $key => $value) {
-            $className = \get_class($data);
-            $key = preg_replace('/\000(.*)\000/', '', str_replace($className, '', $key));
+            $key = preg_replace('/\000(.*)\000/', '', str_replace(\get_class($data), '', $key));
             $array[$key] = $value;
         }
         return $array;
