@@ -1,14 +1,15 @@
 <?php
 
-namespace Polidog\ObjectToArray\Test;
+declare(strict_types=1);
 
+namespace Polidog\ObjectToArray\Test;
 
 use PHPUnit\Framework\TestCase;
 use Polidog\ObjectToArray\ToArrayTrait;
 
 class ToArrayTraitTest extends TestCase
 {
-    public function testRun()
+    public function testRun(): void
     {
         $testObject = new TestObject('test');
         $this->assertSame([
@@ -17,7 +18,7 @@ class ToArrayTraitTest extends TestCase
         ], $testObject->__toArray());
     }
 
-    public function testNestedObject()
+    public function testNestedObject(): void
     {
         $testObject = new TestObject('test');
         $testObject->addChild(new TestObjectChild('child1'));
@@ -31,13 +32,12 @@ class ToArrayTraitTest extends TestCase
                 ],
                 [
                     'name' => 'child2',
-                ]
+                ],
             ],
         ], $testObject->__toArray());
-
     }
 
-    public function testMultiNestedObject()
+    public function testMultiNestedObject(): void
     {
         $testObject = new TestObject('test');
         $child1 = new TestObjectChildSecond('child1');
@@ -52,7 +52,6 @@ class ToArrayTraitTest extends TestCase
         $child2->add(new TestObjectChild('child2-child1'));
         $child2->add(new TestObjectChild('child2-child2'));
 
-
         $this->assertSame([
             'name' => 'test',
             'children' => [
@@ -60,10 +59,10 @@ class ToArrayTraitTest extends TestCase
                     'name' => 'child1',
                     'children' => [
                         [
-                            'name' => 'child1-child1'
+                            'name' => 'child1-child1',
                         ],
                         [
-                            'name' => 'child1-child2'
+                            'name' => 'child1-child2',
                         ],
                     ],
                 ],
@@ -71,17 +70,15 @@ class ToArrayTraitTest extends TestCase
                     'name' => 'child2',
                     'children' => [
                         [
-                            'name' => 'child2-child1'
+                            'name' => 'child2-child1',
                         ],
                         [
-                            'name' => 'child2-child2'
+                            'name' => 'child2-child2',
                         ],
                     ],
-
-                ]
+                ],
             ],
         ], $testObject->__toArray());
-
     }
 }
 
@@ -101,6 +98,7 @@ class TestObject
 
     /**
      * TestObject constructor.
+     *
      * @param string $name
      */
     public function __construct($name)
@@ -116,14 +114,15 @@ class TestObject
         return $this->name;
     }
 
-    public function addChild(TestObjectChildInterface $child)
+    public function addChild(TestObjectChildInterface $child): void
     {
         $this->children[] = $child;
     }
-
 }
 
-interface TestObjectChildInterface {}
+interface TestObjectChildInterface
+{
+}
 
 class TestObjectChild implements TestObjectChildInterface
 {
@@ -144,7 +143,6 @@ class TestObjectChild implements TestObjectChildInterface
     {
         return $this->name;
     }
-
 }
 
 class TestObjectChildSecond implements TestObjectChildInterface
@@ -163,6 +161,7 @@ class TestObjectChildSecond implements TestObjectChildInterface
 
     /**
      * TestObjectChildSecond constructor.
+     *
      * @param string $name
      */
     public function __construct($name)
@@ -170,9 +169,8 @@ class TestObjectChildSecond implements TestObjectChildInterface
         $this->name = $name;
     }
 
-    public function add(TestObjectChildInterface $child)
+    public function add(TestObjectChildInterface $child): void
     {
         $this->children[] = $child;
     }
-
 }

@@ -1,0 +1,17 @@
+<?php
+
+return PhpCsFixer\Config::create()
+    ->setRiskyAllowed(true)
+    ->setRules([
+        '@Symfony' => true,
+        '@Symfony:risky' => true,
+        '@PHP71Migration:risky' => true,
+        'array_syntax' => ['syntax' => 'short'],
+    ])
+    ->setLineEnding("\n")
+    ->setFinder(
+        PhpCsFixer\Finder::create()
+            ->in(__DIR__.'/src')
+            ->in(__DIR__.'/tests')
+    )
+;
