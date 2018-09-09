@@ -18,7 +18,7 @@ function object_to_array($data)
 
         $array = [];
         foreach ((array) $data as $key => $value) {
-            $key = preg_replace('/\000(.*)\000/', '', str_replace(\get_class($data), '', $key));
+            $key = preg_replace('/\000(.*)\000/', '', $key);
             $array[$key] = object_to_array($value);
         }
 
