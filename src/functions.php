@@ -7,7 +7,7 @@ namespace Polidog\ObjectToArray;
 /**
  * @param mixed $data
  *
- * @return array
+ * @return mixed
  */
 function object_to_array($data)
 {
