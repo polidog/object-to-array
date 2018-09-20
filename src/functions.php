@@ -16,6 +16,10 @@ function object_to_array($data)
             return $data->__toArray();
         }
 
+        if (method_exists($data, '__toString')) {
+            return $data->__toString();
+        }
+
         $array = [];
         foreach ((array) $data as $key => $value) {
             $key = preg_replace('/\000(.*)\000/', '', $key);
