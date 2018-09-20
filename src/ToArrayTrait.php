@@ -20,7 +20,7 @@ trait ToArrayTrait
 
         foreach ($properties as $key => $item) {
             if (false === property_exists(\get_class($this), $key)) {
-                unset($properties[$key]);
+                unset($properties[underscore($key)]);
             }
         }
 
