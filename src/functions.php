@@ -44,5 +44,8 @@ function object_to_array($data, bool $strict = true)
 
 function underscore($str)
 {
+    if (is_int($str)) {
+        return $str;
+    }
     return ltrim(strtolower(preg_replace('/[A-Z]/', '_\0', $str)), '_');
 }
