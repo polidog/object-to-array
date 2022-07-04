@@ -126,20 +126,14 @@ interface TestObjectChildInterface
 
 class TestObjectChild implements TestObjectChildInterface
 {
-    /**
-     * @var string
-     */
-    private $name;
+    private string $name;
 
-    public function __construct($name)
+    public function __construct(string $name)
     {
         $this->name = $name;
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
@@ -149,22 +143,19 @@ class TestObjectChildSecond implements TestObjectChildInterface
 {
     use ToArrayTrait;
 
-    /**
-     * @var string
-     */
-    private $name;
+    private string $name;
 
     /**
      * @var TestObjectChildInterface[]
      */
-    private $children = [];
+    private array $children = [];
 
     /**
      * TestObjectChildSecond constructor.
      *
      * @param string $name
      */
-    public function __construct($name)
+    public function __construct(string $name)
     {
         $this->name = $name;
     }

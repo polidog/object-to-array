@@ -42,10 +42,15 @@ function object_to_array($data, bool $strict = true)
     return $data;
 }
 
+/**
+ * @template T
+ * @param T $str
+ * @return int|string
+ */
 function underscore($str)
 {
     if (is_int($str)) {
         return $str;
     }
-    return ltrim(strtolower(preg_replace('/[A-Z]/', '_\0', $str)), '_');
+    return strtolower(ltrim(preg_replace('/[A-Z]/', '_\0', $str), '_'));
 }

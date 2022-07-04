@@ -45,21 +45,13 @@ class FunctionsTest extends TestCase
 
 class DummyObject
 {
-    /**
-     * @var string
-     */
-    private $name;
+    private string $name;
 
     /**
-     * @var DummyTestObjectChild
+     * @var DummyTestObjectChild[]
      */
-    private $children;
+    private array $children;
 
-    /**
-     * TestObject constructor.
-     *
-     * @param string $name
-     */
     public function __construct(string $name)
     {
         $this->name = $name;
@@ -73,16 +65,8 @@ class DummyObject
 
 class DummyTestObjectChild
 {
-    /**
-     * @var string
-     */
-    private $name;
+    private string $name;
 
-    /**
-     * TestObjectChild constructor.
-     *
-     * @param string $name
-     */
     public function __construct(string $name)
     {
         $this->name = $name;
