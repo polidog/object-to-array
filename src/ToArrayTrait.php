@@ -18,7 +18,7 @@ trait ToArrayTrait
 
     private function _getProperties(bool $strict): array
     {
-        $properties = \call_user_func('get_object_vars', $this);
+        $properties = get_object_vars($this);
 
         if (false === $strict) {
             return $properties;
