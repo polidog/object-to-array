@@ -31,24 +31,16 @@ var_dump($dataArray);
 
 use Polidog\ObjectToArray\ToArrayTrait;
 
+
 class User
 {
     use ToArrayTrait;
 
-    /**
-     * @var integer
-     */
-    private $id;
+    private int $id;
 
-    /**
-     * @var string
-     */
-    private $name;
+    private string $name;
 
-    /**
-     * @var \DateTime
-     */
-    private $createdAt;
+    private \DateTimeInterface $createdAt;
 
     /**
      * User constructor.
@@ -61,7 +53,6 @@ class User
         $this->name = $name;
         $this->createdAt = new \DateTime();
     }
-    
 }
 
 $user = new User(1, 'polidog');
